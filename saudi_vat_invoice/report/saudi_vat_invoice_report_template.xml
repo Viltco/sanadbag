@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="report_simplified_vat_invoice_document_id">
+	    <t t-call="web.html_container">
+	        <t t-foreach="docs" t-as="doc">
+	            <t t-call="saudi_vat_invoice.report_simplified_vat_invoice_document"/>
+	        </t>
+	    </t>
+	</template>
+</odoo>
