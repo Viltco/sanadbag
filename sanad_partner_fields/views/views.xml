@@ -7,7 +7,7 @@
 			<field name="arch" type="xml">
 
 				<xpath expr="//field[@name='vat']" position="replace">
-					<field name="vat" size="15"/>
+					<field name="vat" size="15" attrs="{'required': [('is_saudia', '=', True)]}"/>
 				</xpath>
 
 				<xpath expr="//field[@name='country_id']" position="attributes">
@@ -17,10 +17,10 @@
 				<xpath expr="//field[@name='vat']" position="before">
 <!--					<field name="customer_rank" invisible="1"/>-->
 <!--					<field name="supplier_rank" invisible="1"/>-->
-					<field name="is_saudia"/>
+					<field name="is_saudia" invisible="1"/>
 					<field name="partner_type"/>
 					<field name="cr_no" attrs="{'required': [('is_saudia', '=', True)]}"/>
-					<field name="vat" attrs="{'required': [('is_saudia', '=', True)]}"/>
+<!--					<field name="vat" size="15" attrs="{'required': [('is_saudia', '=', True)]}"/>-->
 <!--					attrs="{'invisible': [('partner_type', '=', 'customer')]}"-->
 				</xpath>
 

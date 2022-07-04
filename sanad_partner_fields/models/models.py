@@ -30,9 +30,9 @@ class ResPartnerInh(models.Model):
     email = fields.Char(tracking=1)
     is_saudia = fields.Boolean()
 
-    @api.onchange('country_id')
+    @api.onchange('country_id', 'partner_type')
     def onchange_country(self):
-        if self.country_id.name == 'Saudi Arabia':
+        if self.country_id.name == 'Saudi Arabia' and self.partner_type != 'employee':
             self.is_saudia = True
         else:
             self.is_saudia = False

@@ -268,7 +268,7 @@ class MaterialPurchaseRequisitionInh(models.Model):
         for line in self.requisition_line_ids:
             if line.requisition_type == 'purchase':
                 if not line.partner_id:
-                    raise UserError('Plz Add vendor.')
+                    raise UserError('Please add vendor to create RFQs')
                 if not any(d['product_id'] == line.product_id.id for d in product_list):
                     product_list.append({
                         'product_id': line.product_id.id,
@@ -281,7 +281,6 @@ class MaterialPurchaseRequisitionInh(models.Model):
                     for rec in product_list:
                         if rec['product_id'] == line.product_id.id:
                             rec['product_qty'] = rec['product_qty'] + line.qty
-                            # rec['qty_in_cm'] = rec['qty_in_cm'] + line.qty
         new_list = []
         if product_list:
             for res in product_list:
